@@ -1,0 +1,32 @@
+#include<iostream>
+#include<fstream>
+#include<cstring>
+
+using namespace std;
+
+int main() 
+{
+char line[80];
+int cnt=0;
+
+ifstream myfile("C:\\Users\\DELL\\Desktop\\sanket\\1.calculator.txt");
+
+if(myfile.is_open())
+{
+	while(!myfile.eof())
+	{
+		myfile.getline(line,80);
+		if(line[0]!='A' && line[0]!='a')
+		{
+			cnt++;
+		}
+	}
+}
+else
+{
+cout<<"Unable to open file";
+}
+cout<<"\n Number of lines are:"<<cnt;
+myfile.close();
+	return 0;
+}

@@ -1,0 +1,62 @@
+#include<iostream>
+#include<stdexcept>
+#include<cstring>
+using namespace std;
+int main()
+{
+         	int i,n,age;
+         	char car;
+         	double income;
+ 	char city[20];
+ 	cout<<"\n Enter Age of person: ";
+ 	cin>>age;
+try
+{
+                         if(age<18||age>55)
+                         throw (age);
+         	}
+         	catch(int)
+         	{
+                        cout<<"\n Age is not between 18-55";
+         	}
+             cout<<"\nEnter income of Person: ";
+             cin>>income;
+         	try
+         	{
+                         if(income<50000||income>100000)
+                         throw (income);
+         	}
+            catch(double)
+         	{
+                         cout<<"\n Income is not in range of 50000-100000";
+         	}
+ 	cout<<"\nEnter city of Person: ";
+ 	cin>>city;
+ 	try
+	{
+         		if(strcmp(city,"pune")&& strcmp(city,"bangalore")&& strcmp(city,"chennai")&&
+		strcmp(city,"mumbai"))
+ 	       	throw (city);
+ 	}
+ 	catch(char *)
+        	{
+                         cout<<"\nPerson is not staying in Pune/Mumbai/Bangalore/Chennai";
+}
+cout<<"\nWhether Person holds car or not?(yes/no):";
+cin>>car;
+try
+{
+           		 if(car=='no')
+        		throw (car);
+}
+catch(char)
+{
+                        cout<<"\nPerson Should hold car";
+ }
+cout<<"\nInformation of person is as follows";
+cout<<"\nAge:\t"<<age;
+cout<< "\nIncome:\t"<<income;
+cout<<"\nLocation:\t"<<city;
+cout<< "\nHolding car\t"<<car;
+return 0;
+}

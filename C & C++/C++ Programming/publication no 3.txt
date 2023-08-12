@@ -1,0 +1,89 @@
+#include<iostream>
+#include<stdexcept>
+#include<cstring>
+#include<stdlib.h>
+using namespace std;
+
+class publish
+{
+public:
+	char title[20];
+	float price;
+	void getdata()
+	{
+		cout<<" Enter title : ";
+		cin>>title;
+		cout<<"Enter the price : ";
+		cin>>price;
+	}
+};
+class book:public publish
+{
+	int page_count;
+public:
+	void getdata()
+	{
+		cout<<"Enter page count: "<<endl;
+		cin>>page_count;
+	}
+	void putdata(publish p)
+	{
+		cout<<"Information of book"<<endl;
+		cout<<"\nTitle=\t"<<p.title<<"\tPrice=\t"<<p.price<<"\tPage Count=\t"<<page_count;
+	}
+};
+class CD: public publish
+{
+	float play_time;
+public:
+	void getdata()
+	{
+		cout<<"Enter play time: "<<endl;
+		cin>>play_time;
+	}
+	void putdata(publish p)
+	{
+		cout<<"Information of CD"<<endl;
+				cout<<"\nTitle=\t"<<p.title<<"\tPrice=\t"<<p.price<<"\tPlay_time=\t"<<play_time;
+	}
+};
+int main()
+{
+	int ch;
+	publish p;
+	book b;
+	CD c;
+	while(1)
+	{
+		cout<<"1.Enter publication information: "<<endl;
+		cout<<"2.Enter cd info: "<<endl;
+		cout<<"3.Enter book info"<<endl;
+		cout<<"4.Display Data : "<<endl;
+		cout<<"5.Exit"<<endl;
+		cout<<"Enter your Choice: "<<endl;
+		cin>>ch;
+		switch(ch)
+		{
+		case 1:
+			p.getdata();
+			break;
+		case 2:
+			c.getdata();
+			c.putdata(p);
+			break;
+			
+		case 3:
+		    b.getdata();
+			b.putdata(p);
+			break;
+		
+		case 4:
+			c.putdata(p);
+			b.putdata(p);
+			
+		case 5:
+			exit(0);
+		}
+	}
+	return 0;
+}
